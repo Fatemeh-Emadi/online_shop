@@ -1,5 +1,6 @@
 @include('.../header')
 <div class="container-fluid">
+
     <nav class="navbar navbar-expand-lg navbar-light  " style="background-color: white;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -12,17 +13,17 @@
                 <form class="d-flex">
 
                     <input class="form-control me-2 mt-2" type="search" id="search" placeholder=" جستجو در دیجی کالا...  " aria-label="Search" style="width: 470px; background-color: rgb(233, 233, 233); border: none; font-size: 12px;">
-                    <i class="fa fa-search position-absolute mt-3" style="font-size: 15px; left: 675;"></i>
+                    <i class="fas fa-search position-absolute mt-3" style="font-size: 15px; left: 670;"></i>
 
 
                 </form>
             </div>
-            <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="fa fa-user "></i>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fas fa-user"></i>
                 ورود به حساب کاربری
 
             </button>
-            <i class="fa fa-shopping-cart ms-4"></i>
+            <i class="fas fa-shopping-cart ms-2"></i>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -93,55 +94,32 @@
             </div>
         </div>
     </nav>
-</div>
-<div class="container">
-    <div class="row">
-    <p class="text-secondary mt-3"> {{$product->name}}</p>
-    
-        <div class="col-1 mt-5">
-            <div><i class="bi bi-heart" style="font-size: 25px;"></i></div>
-            <div class="mt-3"><i class="bi bi-share" style="font-size: 25px;"></i></div>
-            <div class="mt-3"><i class="bi bi-bell" style="font-size: 25px;"></i></div>
-            <div class="mt-3"><i class="bi bi-graph-up" style="font-size: 25px;"></i></div>
-            <div class="mt-3"><i class="bi bi-square-half" style="font-size: 25px;"></i></div>
-            <div class="mt-3"><i class="bi bi-list-task" style="font-size: 25px;"></i></div>
-        </div>
-        
-        <div class="col-5 mt-2">
-        
-        
-                <img src="{{url($product->url)}}" class="card-img-top" alt="...">
+    <div class="container-fluid">
+    <h5 class="mt-3 ms-5">همه محصولات</h5>
+        <div class="col-12 mt-4 " style="background-color: white;">
+
+            <div class="row ">
                 
-        </div>
-        <div class="col-6">
-            <div class="card mt-2 ">
-                <div class="card-body">
-                    <h5 class="card-title">مشخصات</h5>
-                    <h6 class="card-subtitle mb-2 text-muted mt-1">{{$product->description}}</h6>
-                     <hr>
-                     <h6>ویژگی ها</h6>
-                    
-                     @foreach($product->informations as $information)
-                     <p class="mt-3">{{$information->title}}: {{$information->value}}</p>
-                     @endforeach
-                    
-                   
-                    <hr>
-                    <div class="row">
-                        <div class="col-6">
-                            <h6 class="text-secondary">قیمت فروشنده</h6>
+                
+           
+                @foreach($products as $product)
+               
+              
+                <div class="col-lg-4 col-md-6 col-sm-12 mt-5">
+                    <div class="card border-0">
+                        <img src="{{$product->url}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <a href="product/{{$product->id}}" class="text-dark" style="text-decoration:none;">
+                            <p class="card-text">{{$product->description}}</p>
+                            <a href="#" class="btn btn-outline-secondary mt-3">{{$product->price}} تومان</a>
                         </div>
-                        <div class="col-6">
-                            <p class="text-secondary" style="margin-right: 110px;">{{$product->price}} تومان</p>
-                        </div>
-                    </div>
-                    <div>
-                        <center><button class="btn btn-danger">افزودن به سبد خرید</button></center>
                     </div>
                 </div>
-
+                </a>
+                
+              
+                @endforeach
+                
             </div>
         </div>
-
-    </div>
-</div>
+        @include('.../footer')

@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\InformationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,5 +15,9 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('show-product', [HomeController::class, 'show_product']);
+Route::get('/', [ProductController::class, 'get_all']);
+Route::get('all', [ProductController::class, 'show_all']);
+//Route::get('show-product', [HomeController::class, 'show_product']);
+Route::post('/product-info',[ProductController::class, "product_info"]);
+Route::get('/product/{id}',[ProductController::class, "index"] );
+//Route::get('/product/{id}',[InformationController::class, "index"] );
