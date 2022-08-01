@@ -162,7 +162,7 @@
 
                     <div class="col-lg col-md-6 col-sm-12 mt-1">
                         <div class="card" style="width: 16rem; height:30rem;">
-                            <img src="{{$product->url}}" class="card-img-top" alt="...">
+                            <img src="{{$product->images->first()->url}}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->name}}</h5>
                                 <p class="card-text " style="font-size:14px;">{{$product->description}}</p>
@@ -213,7 +213,7 @@
                     @if($product->category_id==4)
                     <div class="col-lg col-md-6 col-sm-12 mt-1">
                         <div class="card">
-                            <img src="{{$product->url}}" class="card-img-top" alt="...">
+                            <img src="{{$product->images->first()->url}}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{$product->name}}</h5>
                                 <p class="card-text" style="font-size: 12px;">{{$product->description}}</p>
@@ -332,7 +332,7 @@
                     @if($product->category_id==2)
                     <div class="col-lg col-md-6 col-sm-12">
                         <div class="card" style="border: none;">
-                            <img src="{{$product->url}}" class="card-img-top" alt="...">
+                            <img src="{{$product->images->first()->url}}" class="card-img-top" alt="...">
                             <div class="card-body">
 
                                 <p class="card-text">{{$product->description}}</p>
@@ -383,7 +383,7 @@
                 @if($product->category_id==1)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card border-0">
-                        <img src="{{$product->url}}" class="card-img-top" alt="...">
+                        <img src="{{$product->images->first()->url}}" class="card-img-top" alt="...">
                         <div class="card-body">
 
                             <p class="card-text">{{$product->description}}</p>
