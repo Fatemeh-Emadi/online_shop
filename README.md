@@ -1,6 +1,6 @@
 # online_shop
 
-![a](https://user-images.githubusercontent.com/79381313/180395138-d8c2b0bc-dea4-4c7a-bd5e-87580a558799.png)
+
 
 
 ![b](https://user-images.githubusercontent.com/79381313/180395175-b03b6e30-4d09-47a0-b2e0-1d35ed2b1981.png)
