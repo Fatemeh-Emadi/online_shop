@@ -12,22 +12,17 @@ class AdminController extends Controller
     {
         return view("admin.index");
     }
-    function login_get()
+    function admin_login_get()
     {
         return view("admin.admin_login");  
     }
 
-    function login_post(Request $request)
+    function admin_login_post(Request $request)
     {
        
-        $this->validate($request,[
-            
-            'username'=>'required',
-            
-            'password'=>'required|min:8',
-            
-        ]);
-    
+        
+          //  $username="admin";
+          //  $password="12345678";
        if(Auth::attempt(["username"=>$request["username"],"password"=>$request["password"]])){
           
             return redirect("/admin")->with([
