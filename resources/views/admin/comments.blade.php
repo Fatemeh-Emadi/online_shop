@@ -19,7 +19,7 @@
     <td>
        
     
-        <a class="btn btn-danger" href="comments/delete/{{$comment->id}}">حذف</a>
+        <a class="btn btn-danger" href="comments/delete/{{$comment->id}}"><i class="bi bi-trash3"></i></a>
     </td>
 </tr>
 @endforeach

@@ -1,49 +1,5 @@
 @include('.../header')
-<div class="container-fluid">
 
-    <nav class="navbar navbar-expand-lg navbar-light  " style="background-color: white;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="https://www.digikala.com/static/files/bc60cf05.svg" alt="" class="d-inline-block align-text-top">
-
-            </a>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <form class="d-flex">
-
-                    <input class="form-control me-2 mt-2" type="search" id="search" placeholder=" جستجو در دیجی کالا...  " aria-label="Search" style="width: 470px; background-color: rgb(233, 233, 233); border: none; font-size: 12px;">
-                    <i class="fas fa-search position-absolute mt-3" style="font-size: 15px; left: 670;"></i>
-
-
-                </form>
-            </div>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <i class="fas fa-user"></i>
-                ورود به حساب کاربری
-
-            </button>
-            <i class="fas fa-shopping-cart ms-2"></i>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
 
 
     <nav class="navbar navbar-expand-lg navbar-light  " style="background-color: white;">
@@ -102,47 +58,7 @@
             </div>
 
 
-            <div class="row mt-3">
-                <div class="col-lg-8 col-md-8 col-sm-12 mt-2">
-                    <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active rounded-circle" aria-current="true" aria-label="Slide 1" style="width: 10px; height: 10px;"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="rounded-circle" aria-label="Slide 2" style="width: 10px; height: 10px;"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="rounded-circle" aria-label="Slide 3" style="width: 10px; height: 10px;"></button>
-                        </div>
-                        <div class="carousel-inner" style="border-radius: 12px;">
-                            <div class="carousel-item active">
-                                <img src="https://dkstatics-public.digikala.com/digikala-adservice-banners/c0733742b900f9b30e0b719dddd06362a345ce94_1641402963.jpg?x-oss-process=image/quality,q_80" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://dkstatics-public.digikala.com/digikala-adservice-banners/8f50be84d7b4c96334e531913fcc25f0efcfad0e_1641396653.jpg?x-oss-process=image/quality,q_80" class="d-block w-100" alt="...">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="https://dkstatics-public.digikala.com/digikala-adservice-banners/e51dd63ae816581ff0a378b9de00ac29a7c7c1d0_1641647905.jpg?x-oss-process=image/quality,q_80" class="d-block w-100" alt="...">
-                            </div>
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12  mt-2">
-                    <div class="row ">
-                        <img src="images/1.jpg" class="img-fluid  " alt="" id="img1">
-                    </div>
-                    <div class="row " style="margin-top: 12px;">
-                        <img src="images/2.jpg " class="img-fluid" alt="" id="img1">
-                    </div>
-
-                </div>
-
-
-            </div>
+          
         </div>
     </div>
 

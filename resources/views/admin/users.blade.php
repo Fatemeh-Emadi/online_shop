@@ -28,7 +28,7 @@
     <td>{{$user->mobile_number}}</td>
     <td>
        
-        <a class="btn btn-danger" href="users/delete/{{$user->id}}">حذف</a>
+        <a class="btn btn-danger" href="users/delete/{{$user->id}}"><i class="bi bi-trash3"></i></a>
     </td>
 </tr>
 @endforeach

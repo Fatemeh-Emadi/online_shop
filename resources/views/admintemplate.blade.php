@@ -10,7 +10,7 @@
     <title>قالب لوحة القيادة · Bootstrap v5.2</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/dashboard-rtl/">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="{{ url('css/bootstrap.rtl.css') }}" rel="stylesheet" >
 <link href="{{ url('css/dashboard.rtl.css') }}" rel="stylesheet">
 

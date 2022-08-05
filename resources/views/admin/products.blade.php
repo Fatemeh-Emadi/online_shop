@@ -32,8 +32,8 @@
                     <td>{{$product->price_off}}</td>
                     <td>{{$product->category->title}}</td>
                     <td>{{$product->count}}</td>
-                    <td> <a href="products/edit/{{$product->id}}" class="btn btn-sm btn-info mt-3">ویرایش</a>
-                        <a href="products/delete/{{$product->id}}" class="btn btn-sm btn-danger mt-3">حذف</a>
+                    <td> <a href="products/edit/{{$product->id}}" class="btn btn-sm btn-info mt-3"><i class="bi bi-pencil-square"></i></a>
+                        <a href="products/delete/{{$product->id}}" class="btn btn-sm btn-danger mt-3"><i class="bi bi-trash3"></i></a>
                     </td>
                 </tr>
                 @endforeach
