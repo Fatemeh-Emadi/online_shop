@@ -21,9 +21,10 @@ class AdminController extends Controller
     {
        
         
-          //  $username="admin";
-          //  $password="12345678";
-       if(Auth::attempt(["username"=>$request["username"],"password"=>$request["password"]])){
+         // $username=$request["username"];
+         // $password=$request["password"];
+          
+      if(Auth::attempt(["username"=>$request["username"],"password"=>$request["password"],'role'=>"1"],$request["remember_me"])){
           
             return redirect("/admin")->with([
                 "message"=>"شما با موفقیت وارد حساب کاربری خود شدید"

@@ -7,7 +7,7 @@ use App\Models\City;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\Unique;
-
+use Illuminate\Support\Facades\Session;
 class UserController extends Controller
 {
 
@@ -36,11 +36,15 @@ class UserController extends Controller
         $login_type = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL ) ? 'email' : 'username';
         $request->merge([ $login_type => $request->input('login') ]);
         if (Auth::attempt($request->only($login_type, 'password'))) { 
-            return redirect("/profile")->with([
-                "message"=>"شما با موفقیت وارد حساب کاربری خود شدید"
-            ]
+           // if(Auth::attempt(['role'=>0])){
+               
+            $id = Auth::id();
+              
+              Session::put("user_id",$id);
+             // $_SESSION["user_id"] = $user["id"];
 
-            );
+            return redirect("/profile");
+       // }
         }
         /*if(Auth::attempt(["email"=>$request["email"],"password"=>$request["password"]])){
             return redirect("/profile")->with([

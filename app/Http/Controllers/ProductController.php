@@ -29,6 +29,9 @@ class ProductController extends Controller
         $new_product->count=$request["count"];
         $new_product->category_id=$request["category_id"];
         $new_product->save();
+        $new_image=new Image();
+        $new_image->url=$request["image"];
+        $new_product->images()->save($new_image);
         return redirect("/admin/products");
     }
     function edit_get($id)

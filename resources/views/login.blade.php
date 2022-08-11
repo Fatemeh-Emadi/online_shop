@@ -61,7 +61,12 @@
                                         </div>
 
             <!-- 2 column grid layout for inline styling -->
-            
+            <div class="form-check mb-3">
+  <input class="form-check-input" type="checkbox"  id="flexCheckDefault" name="remember_me" >
+  <label class="form-check-label" for="flexCheckDefault">
+    مرا به خاطر بسپار
+  </label>
+</div>
 
               
 
