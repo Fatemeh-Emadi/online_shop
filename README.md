@@ -1,5 +1,10 @@
 # online_shop
 
+![pagination](https://user-images.githubusercontent.com/79381313/185971233-9a151099-c06f-4444-8bf2-661325cf1706.png)
+
+![star](https://user-images.githubusercontent.com/79381313/185971295-7ae11a55-aa08-428a-ae47-e6c817a47500.png)
+
+
 ![add](https://user-images.githubusercontent.com/79381313/184214978-fd1804ad-851b-4c42-a831-1dced1d4c841.png)
 
 
