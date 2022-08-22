@@ -90,7 +90,7 @@ class ProductController extends Controller
 
     function show_all()
     {
-        $products=Product::all();
+        $products=Product::paginate(3);
         //$products=DB::table('products')->join('images','products.id','=','images.product_id')->select('products.*', 'images.url')
         //->get();;
         return view("AllProducts",[

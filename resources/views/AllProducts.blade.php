@@ -75,7 +75,9 @@
                 
               
                 @endforeach
-                
+                <div>
+                    {{$products->links()}}
+                </div>
             </div>
         </div>
         @include('.../footer')

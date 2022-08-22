@@ -117,78 +117,118 @@
     <div class="row mt-5 mb-5">
         <div class="col-6">
             <h5 class="text-secondary">نظرات کاربران</h5>
-            <div  id="collapse{{$product->id}}">
-                  <ul class="list-group" id="list-comments-{{$product->id}}">
+            <div class="d-flex mb-3">
+                 <div class="text-primary ml-2">
+                 <i class="bi bi-star-fill text-warning"></i>
+                 <i class="bi bi-star-fill text-warning"></i>
+                 <i class="bi bi-star-fill text-warning"></i>
+                 <i class="bi bi-star-fill text-warning"></i>
+                 <i class="bi bi-star text-warning"></i>
+                 </div>
+                 <small class="ms-1">از مجموع 10 نظر</small>
+                 <div class="d-flex mb-3" style="margin-right: 110px;">
+                 <small class="ms-1">نظر شما:</small>
+                 <div class="text-primary ">
+                 
+                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(1)"></i>
+                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(2)"></i>
+                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(3)"></i>
+                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(4)"></i>
+                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(5)"></i>
+                 </div>
+                 
+          
+        </div>
+
+          </div>
+            <div id="collapse{{$product->id}}">
+                <ul class="list-group" id="list-comments-{{$product->id}}">
                     @foreach($product->comments as $comment)
 
-                      <li class="list-group-item list-group-item-action" aria-current="true">
+                    <li class="list-group-item list-group-item-action" aria-current="true">
 
                         <div class="d-flex w-100 justify-content-between">
-                          <small>{{$comment->user->name}}</small>
+                            <small>{{$comment->user->name}}</small>
 
-                          
-                          
+
+
                         </div>
                         <p class="mb-1 text-secondary">{{$comment->text}}</p>
                     </li>
 
 
                     @endforeach
-                    </ul>
-                </div>
-                @guest
-                <div class="alert alert-danger mt-4" role="alert">
- برای ثبت نظر حتما باید وارد حساب کاربری خود شوید
-</div>
-                @endguest
-                @auth
-                <div class="mb-3 mt-5">
-                    <form method="post" id="form-comment-{{$product->id}}">
-                        <label for="exampleFormControlTextarea1" class="form-label">دیدگاه شما</label>
-                        <input type="text" class="form-control"  placeholder="Write comment" name="text">
-                        <input type="hidden" name="product_id" value="{{$product->id}}">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}" >
-                </div>
-                
-                <center><button class="btn btn-outline-danger" type="button" onclick='send_comment({{$product->id}})'>ثبت دیدگاه</button></center>
-               </form>
+                </ul>
+            </div>
+            @guest
+            <div class="alert alert-danger mt-4" role="alert">
+                برای ثبت نظر حتما باید وارد حساب کاربری خود شوید
+            </div>
+            @endguest
+            @auth
+            <div class="mb-3 mt-5">
+                <form method="post" id="form-comment-{{$product->id}}">
+                    <label for="exampleFormControlTextarea1" class="form-label">دیدگاه شما</label>
+                    <input type="text" class="form-control" placeholder="ثبت نظر..." name="text">
+                    <input type="hidden" name="product_id" value="{{$product->id}}">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+            </div>
+
+            <center><button class="btn btn-outline-danger" type="button" onclick='send_comment({{$product->id}})'>ثبت دیدگاه</button></center>
+            </form>
         </div>
+        <div class="col-6">
+        
 
 
     </div>
 </div>
 <script>
-      function send_comment(product_id){
-    let form = document.getElementById("form-comment-"+product_id);
-    let form_data = new FormData(form);
-  
-    fetch("{{url('/send-comment')}}" , {
-      method:"post",
-      body:form_data
-    }).then(result=>result.text()
-    ).then(result=>{
-      console.log(result);
-      if(result==1){
-    
-     
-      let list_comments = document.getElementById("list-comments-"+product_id);
-  
-      let li = document.createElement("LI");
-      li.classList.add("list-group-item");
-      li.classList.add("list-group-item-action");
-  
-      let p=document.createElement("P");
-      p.classList.add("mb-1");
-      p.innerHTML = form_data.get("text");
-     
-      li.appendChild(p);   
-      list_comments.appendChild(li);
-      }
-    }).catch(error=>{
-      alert(error);
-    });
-  
-  
-  }
+    function send_comment(product_id) {
+        let form = document.getElementById("form-comment-" + product_id);
+        let form_data = new FormData(form);
+
+        fetch("{{url('/send-comment')}}", {
+            method: "post",
+            body: form_data
+        }).then(result => result.text()).then(result => {
+            console.log(result);
+            if (result == 1) {
+
+
+                let list_comments = document.getElementById("list-comments-" + product_id);
+
+                let li = document.createElement("LI");
+                li.classList.add("list-group-item");
+                li.classList.add("list-group-item-action");
+
+                let p = document.createElement("P");
+                p.classList.add("mb-1");
+                p.innerHTML = form_data.get("text");
+
+                li.appendChild(p);
+                list_comments.appendChild(li);
+            }
+        }).catch(error => {
+            alert(error);
+        });
+
+
+    }
+
+    var stars=document.getElementsByClassName("rating");
+    function draw_rating(x)
+    {
+        for(var i=0; i < x; i++)
+        {
+            stars[i].classList.remove("bi-star");
+            stars[i].classList.add("bi-star-fill");
+        }
+        for(var i=x; i < 5; i++)
+        {
+            stars[i].classList.remove("bi-star-fill");
+            stars[i].classList.add("bi-star");
+        }
+    }
 </script>
 @endauth
