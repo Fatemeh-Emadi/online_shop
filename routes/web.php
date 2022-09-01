@@ -68,6 +68,7 @@ Route::get('/login-admin', [AdminController::class, 'admin_login_get']);
 Route::post('/login-admin', [AdminController::class, 'admin_login_post']);
 
 Route::post('/send-comment',[CommentController::class,'send_comment']);
+Route::post('/send-rating',[ProductController::class,'add_rating']);
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();

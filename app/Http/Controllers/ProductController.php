@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Product;
 use App\Models\Image;
+use App\Models\Star;
 use Illuminate\Http\Request;
 //use App\Models\Information;
 class ProductController extends Controller
@@ -119,6 +120,25 @@ class ProductController extends Controller
         
 
     }
-    
+    function add_rating(Request $request){
+      $stars=Star::where("user_id","=",Auth::id())->where("product_id","=",$request["product_id"]);
+      if($stars->count()==0)
+      {
+          $star=new Star();
+          $star->user_id=Auth::id();
+          $star->product_id=$request["product_id"];
+          $star->score=$request["score"];
+          $star->save();
+      }
+      else
+      {
+        $star= $stars->first();
+        $star->score=$request["score"];
+        $star->update();
+
+
+      }
+      return "ok";
+    }
 
 }

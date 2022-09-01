@@ -130,11 +130,11 @@
                  <small class="ms-1">نظر شما:</small>
                  <div class="text-primary ">
                  
-                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(1)"></i>
-                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(2)"></i>
-                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(3)"></i>
-                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(4)"></i>
-                 <i class="bi bi-star text-warning rating" onmouseout="draw_rating(5)"></i>
+                 <i class="bi bi-star text-warning rating" onmouseover="draw_rating(1)" onclick="add_rating(1)"></i>
+                 <i class="bi bi-star text-warning rating" onmouseover="draw_rating(2)" onclick="add_rating(2)"></i>
+                 <i class="bi bi-star text-warning rating" onmouseover="draw_rating(3)" onclick="add_rating(3)"></i>
+                 <i class="bi bi-star text-warning rating" onmouseover="draw_rating(4)" onclick="add_rating(4)"></i>
+                 <i class="bi bi-star text-warning rating" onmouseover="draw_rating(5)" onclick="add_rating(5)"></i>
                  </div>
                  
           
@@ -184,6 +184,43 @@
     </div>
 </div>
 <script>
+     var stars=document.getElementsByClassName("rating");
+  
+    
+    function draw_rating(x)
+    {
+        for(var i=0; i < x; i++)
+        {
+            stars[i].classList.remove("bi-star");
+            stars[i].classList.add("bi-star-fill");
+        }
+        for(var i=x; i < 5; i++)
+        {
+            stars[i].classList.remove("bi-star-fill");
+            stars[i].classList.add("bi-star");
+        }
+    }
+    function add_rating(x)
+    {
+        var json_data={
+            product_id="{{$product->id}}",
+            score:x
+        };
+        fetch("/send-rating",{
+            method:"post",
+            headers:{
+                "Content-Type":"application/json",
+                "Accept":"application/json",
+                "X-Requested-With":"XMLHttpRequest",
+                "X-CSRF-Token":"{{csrf_token()}}"
+            },
+            body:JSON.stringify(json_data)
+        })
+        .then(result=>{
+            alert("امتیاز شما با موفقیت ثبت شد");
+        });
+    }
+
     function send_comment(product_id) {
         let form = document.getElementById("form-comment-" + product_id);
         let form_data = new FormData(form);
@@ -216,19 +253,9 @@
 
     }
 
-    var stars=document.getElementsByClassName("rating");
-    function draw_rating(x)
-    {
-        for(var i=0; i < x; i++)
-        {
-            stars[i].classList.remove("bi-star");
-            stars[i].classList.add("bi-star-fill");
-        }
-        for(var i=x; i < 5; i++)
-        {
-            stars[i].classList.remove("bi-star-fill");
-            stars[i].classList.add("bi-star");
-        }
-    }
+   
+ 
+    
+    
 </script>
 @endauth
